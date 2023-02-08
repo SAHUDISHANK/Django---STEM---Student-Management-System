@@ -1,0 +1,106 @@
+{% load static %}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="" class="brand-link">
+      <img src={% static 'dashboard/dist/img/AdminLTELogo.png' %} alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">JIGYASA</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="info">
+        <a href="{% url 'StudentEditProfile' %}" class="d-block">{{user.first_name}} {{user.last_name}} </a>
+      </div>
+    </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2"> 
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+         {% url 'studentHome' as studentHome %}
+        <li class="nav-item has-treeview menu-open">
+          <a href='{{studentHome}}' class="nav-link {% if request.path == studentHome %}active {% endif %}  ">
+            <i class="fas fa-home"></i>
+            <p>
+              Home
+             
+            </p>
+          </a>
+        </li>
+        {% url 'StudentViewAttendance' as StudentViewAttendance %}
+        {% url 'StudentViewAttendancePost' as StudentViewAttendancePost %}
+        <li class="nav-item has-treeview menu-open">
+          <a href='{{StudentViewAttendance}}'
+            class="nav-link {% if request.path == StudentViewAttendance %}active {% endif %} {% if request.path == StudentViewAttendancePost %}active {% endif %}  ">
+            <i class="fas fa-home"></i>
+            <p>
+              Student Attendance
+              
+            </p>
+          </a>
+          
+        </li>
+         {% url 'StudentDownloadNotes' as StudentDownloadNotes %}
+        <li class="nav-item has-treeview menu-open">
+          <a href='{{StudentDownloadNotes}}'
+            class="nav-link {% if request.path == StudentDownloadNotes %}active {% endif %}  ">
+            <i class="fas fa-file-download"></i>
+            &ensp;
+            <p>
+              Download Notes
+            </p>
+          </a>
+        </li>
+        {% url 'StudentJoinMeeting' as StudentJoinMeeting %}
+          <li class="nav-item has-treeview menu-open">
+          <a href='{{StudentJoinMeeting}}'
+            class="nav-link {% if request.path == StudentJoinMeeting %}active {% endif %}  ">
+            <i class="far fa-calendar"></i>
+            &ensp;
+            <p>
+              Join Meeting
+            </p>
+          </a>
+        </li>
+           {% url 'StudentApplyLeave' as StudentApplyLeave %}
+        <li class="nav-item has-treeview menu-open">
+          <a href='{{StudentApplyLeave}}'
+            class="nav-link {% if request.path == StudentApplyLeave %}active {% endif %}  ">
+            <i class="fas fa-home"></i>
+            <p>
+              Apply Leave
+            </p>
+          </a>
+        </li>
+
+        {% url 'StudentTodoList' as StudentTodoList %}
+        <li class="nav-item has-treeview menu-open">
+          <a href='{{StudentTodoList}}' class="nav-link {% if request.path == StudentTodoList %}active {% endif %}  ">
+            <i class="fas fa-list"></i>
+            &ensp;
+            <p>
+              Todo List
+            </p>
+          </a>
+        </li>
+        
+        {% url 'StudentFeedback' as StudentFeedback %}
+        <li class="nav-item has-treeview menu-open">
+          <a href='{{StudentFeedback}}'
+            class="nav-link {% if request.path == StudentFeedback %}active {% endif %}  ">
+            <i class="fas fa-home"></i>
+            <p>
+              Feedback
+            </p>
+          </a>
+        </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
